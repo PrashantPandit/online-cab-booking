@@ -1,0 +1,152 @@
+
+<center>
+<button type="button" class="btn admin-modal-button" data-toggle="modal" data-target="#1modal">
+  <b>Add Driver Details</b>
+</button>
+</center>
+<br>
+      <div class="modal fade" id="1modal" role="dialog">
+          <div class="modal-dialog modal-md">
+
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Driver Details</h4>
+                  </div>
+                  <div class="modal-body">
+                        <label>First Name</label>
+                        <input type="text" ng-model = "dvrd.FirstName" class="form-control" placeholder="First Name"/>
+
+                        <br>
+                        <label>Last Name</label>
+                        <input type="text" ng-model = "dvrd.LastName" class="form-control" placeholder="Last Name"/>
+                        <br>
+                        <label>Adress</label>
+                        <textarea type="text" ng-model = "cabr.cabrdriverAdd" class="form-control" placeholder="Address"/></textarea>
+                        <br>
+                        <label>Contact Number</label>
+                        <input type="text" ng-model = "dvrd.MobileNumber" class="form-control" placeholder="Contact No"/>
+                        <br>
+                        <label>Email</label>
+                        <input type="text" ng-model = "dvrd.Email" class="form-control" placeholder="Email Address"/>
+                        <br>
+                        <label>License Number</label>
+                        <input type="text" ng-model = "cabr.cabrdriverLicenseno" class="form-control" placeholder="License No"/>
+                        <br>
+                        <label>Cab Type</label>
+                        <select class="form-control" ng-model = "cabr.cabrType">
+                          <option>Micro</option>
+                          <option>Mini</option>
+                          <option>Prime Sedan</option>
+                          <option>Prime Suv</option>
+                        </select>
+                        <br>
+                        <label>Make</label>
+                        <input type="text" ng-model = "cabr.cabrMake" class="form-control" placeholder="Make"/>
+                        <br>
+                        <label>Model</label>
+                        <input type="text" ng-model = "cabr.cabrModel" class="form-control" placeholder="Model"/>
+                        <br>
+                        <label>Registration No.</label>
+                        <input type="text" ng-model = "cabr.cabrRegno" class="form-control" placeholder="Registration No"/>
+                      </div>
+                      <br>
+
+                  <button class="btn btn-primary btn-block" ng-click="addcabDriver(cabr); addDvrDtl(dvrd);">Add Driver</button>                      </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                  </div>
+
+              </div>
+
+            </div>
+
+            <div class="container well sm">
+            <div class="table-responsive table-bordered" style="margin-top:10px;">
+            <table class="table table-hover">
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Type</th>
+              </tr>
+              <tr ng-repeat = "dvrd in dvrdList | filter:'Driver'">
+                <td ng-repeat = "cabr in cabrList"></td>
+                <td>{{dvrd.FirstName}}</td>
+                <td>{{dvrd.Email}}</td>
+                <td>{{dvrd.MobileNumber}}</td>
+                <td>{{dvrd.UserType}}</td>
+                <td><button ng-click = "deletecabDriver(cabr); deleteDvrDtl(dvrd);" class="btn btn-danger">Delete</button></td>              </tr>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<center>
+<button type="button" class="btn admin-modal-button" data-toggle="modal" data-target="#2modal">
+  <b>Add Tariff</b>
+</button>
+</center>
+      <br>
+      <div class="modal fade" id="2modal" role="dialog">
+          <div class="modal-dialog modal-md">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Tariff Plan</h4>
+                  </div>
+                  <div class="modal-body">
+                        <select class="form-control" ng-model = "Trf.Type">
+                          <option>Micro</option>
+                          <option>Mini</option>
+                          <option>Prime Sedan</option>
+                          <option>Prime SUV</option>
+                        </select>
+                        <br>
+                        <input type = "text" class="form-control" ng-model = "Trf.NrmRt" placeholder="Normal Hour Rate/KM"/>
+                        <br>
+                        <input type  = "text" class="form-control" ng-model = "Trf.PekRt" placeholder="Peak Hour Rate/KM"/>
+                        <br>
+                        <input type ="text" id= "timepicker" name = "timepicker" class="timepicker form-control" ng-model = "Trf.StPekTm" placeholder="Strat Time"/>
+                        <br>
+                        <input type ="text" id = "timepicker" name = "timepicker" class="timepicker form-control" ng-model = "Trf.EnPekTm" placeholder="End Time"/>
+                        <br>
+                        <button ng-click="addTariff(Trf)" class="btn btn-primary btn-block" style="margin-top:10px;">Add Cab</button>
+                      </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                  </div>
+
+              </div>
+
+            </div>
+
+            <div class="container well sm">
+            <div class="table-responsive table-bordered" style="margin-top:10px;">
+            <table class="table table-hover">
+              <tr>
+                <th>Cab Type</th>
+                <th>Normal Hour Rate</th>
+                <th>Peak Hour Rate</th>
+                <th>Start Peak Time</th>
+                <th>End Peak Time</th>
+              </tr>
+              <tr ng-repeat= "Trf in TrfList">
+                <td>{{Trf.Type}}</td>
+                <td>{{Trf.NrmRt}}</td>
+                <td>{{Trf.PekRt}}</td>
+                <td>{{Trf.StPekTm}}</td>
+                <td>{{Trf.EnPekTm}}</td>
+                <td><button ng-click="deleteTariff(Trf)" class="btn btn-danger">Delete</button></td>
+              </tr>
+            </table>
+            </div>
+          </div>
+        </div>
+
+</div>
+</div>

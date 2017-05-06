@@ -1,0 +1,57 @@
+<br><br>
+<div class="col-sm-6">
+ <button class="btn btn-default btn-block" ng-click="showCorrentBookings();">Current Booking</button>
+
+ <div class="container">
+   <div class="col-sm-6">
+   <div class="well">
+     <table class="table table-bordered table-hover">
+       <thead>
+         <tr>
+           <th id="table-head">PickUp Location</th>
+           <th id="table-head">Drop Location</th>
+           <th id="table-head">Date</th>
+           <th id="table-head">Time</th>
+           <th id="table-head">Contact</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr  style="text-align:center;" ng-repeat="ride in rideList">
+           <td class="info">{{ride.PickUp}}</td>
+           <td class="success">{{ride.Drop}}</td>
+           <td class="warning">{{ride.rDate | date:'fullDate'}}</td>
+           <td class="danger">{{ride.Time | date:'h:mm:ss a'}}</td>
+           <td class="info">{{ride.Contact}}</td>
+           <td><md-button ng-click="removeRideLater(ride)" class="md-raised md-warn">Cancle</md-button></td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+ </div>
+</div>
+
+ <div class="modal fade" id="Modal" role="dialog">
+   <div class="modal-dialog modal-md">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss = "modal">&times;</button>
+           <h4 class="modal-title">You Got A Booking</h4>
+       </div>
+       <div class="modal-body">
+			      Name:<p id="custName"></p>
+			      Phone no: <p id="contactno"></p>
+			      Pickup: <p id="pickup"></p>
+			      Destination:  <p id="destinationloc"></p>
+			      Fare: <p id="fare"></p>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+</div>
+<div class = "col-sm-6">
+  <div id="map" ng-init="initMap();">
+</div>

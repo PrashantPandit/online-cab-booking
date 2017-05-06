@@ -1,0 +1,38 @@
+
+
+<style media="screen">
+  .position
+  {
+    align-items: center;
+    margin: 50%;
+    margin-top: 50px;
+    width: 80%;
+  }
+</style>
+
+<div class="col-md-6">
+  <div class="container position">
+    <div class="well">
+    <div class="well sm">
+    <h1 class="text-center">Register</h1>
+  <form>
+    <label>First Name</label>
+    <input type="text" class="form-control" ng-model = "user.FirstName" placeholder="Enter First Name"  required><br>
+    <label>Last Name</label>
+    <input type="text" class="form-control" ng-model = "user.LastName" placeholder="Enter Last Name"  required><br>
+    <label>Email</label>
+    <input type="text" class="form-control" ng-model = "user.Email" placeholder="Email"  required><br>
+    <label>Contact Number</label>
+    <input type="text" class="form-control" ng-model = "user.MobileNumber" placeholder="Contact Number"  required><br>
+    <label>Password</label>
+    <input type="text" class="form-control" ng-model = "user.Password" placeholder="Password" name="psw-repeat" required><br>
+    <button type="submit"  ng-click = "reg();"class="btn btn-primary btn-block" >Register</button>
+    <div ng-show = "message">
+      <div ng-class = "alert">{{ message }}</div>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
